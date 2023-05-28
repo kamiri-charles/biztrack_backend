@@ -2,9 +2,7 @@ package com.kamiri.biztrack_backend.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
 import java.util.UUID;
-
 import jakarta.persistence.Column;
 
 @Entity(name = "users")
