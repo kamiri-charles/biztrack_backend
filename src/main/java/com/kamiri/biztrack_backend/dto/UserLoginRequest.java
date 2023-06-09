@@ -1,13 +1,27 @@
 package com.kamiri.biztrack_backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UserLoginRequest {
-    private String username;
+
+    @JsonProperty("username_or_email")
+    private String usernameOrEmail;
+    
     private String password;
 
-    public String getUsername() {
-        return username;
+    public UserLoginRequest() {
     }
+
+    public UserLoginRequest(String usernameOrEmail, String password) {
+        this.usernameOrEmail = usernameOrEmail;
+        this.password = password;
+    }
+
+    public String getUsernameOrEmail() {
+        return this.usernameOrEmail;
+    }
+
     public String getPassword() {
-        return password;
+        return this.password;
     }
 }
