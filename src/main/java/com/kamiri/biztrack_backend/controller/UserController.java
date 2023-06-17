@@ -3,13 +3,16 @@ package com.kamiri.biztrack_backend.controller;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.kamiri.biztrack_backend.repository.UserRepository;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.kamiri.biztrack_backend.dto.UserLoginRequest;
 import com.kamiri.biztrack_backend.models.User;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserController {
     private UserRepository userRepository;
 
@@ -37,6 +40,15 @@ public class UserController {
             }
             else {
                 return null;
+            }
+        }
+
+        @GetMapping("/is-user-signed-in/{id}")
+        public Boolean isUserSignedIn(@PathVariable("id") UUID userUUID) {
+            if (userRepository.findByUuid(userUUID) != null) {
+                return true;
+            } else {
+                return false;
             }
         }
 }
