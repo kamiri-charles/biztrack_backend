@@ -1,8 +1,11 @@
 package com.kamiri.biztrack_backend.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import java.util.UUID;
 
+
+@Entity(name = "products")
 public class Product {
 
     @Id
@@ -11,25 +14,17 @@ public class Product {
     private String description;
     private String price;
     private String quantity;
-    private String business_uuid;
-    private String date_created;
-    private String date_updated;
-
 
     // Constructors
     public Product() {
     }
 
-    public Product(UUID uuid, String name, String description, String price, String quantity, String business_uuid,
-            String date_created, String date_updated) {
+    public Product(UUID uuid, String name, String description, String price, String quantity) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
-        this.business_uuid = business_uuid;
-        this.date_created = date_created;
-        this.date_updated = date_updated;
     }
 
     // Getters and Setters
@@ -63,24 +58,4 @@ public class Product {
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
-    public String getBusiness_uuid() {
-        return business_uuid;
-    }
-    public void setBusiness_uuid(String business_uuid) {
-        this.business_uuid = business_uuid;
-    }
-    public String getDate_created() {
-        return date_created;
-    }
-    public void setDate_created(String date_created) {
-        this.date_created = date_created;
-    }
-    public String getDate_updated() {
-        return date_updated;
-    }
-    public void setDate_updated(String date_updated) {
-        this.date_updated = date_updated;
-    }
-
-    
 }

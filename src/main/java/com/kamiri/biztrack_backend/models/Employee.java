@@ -14,7 +14,8 @@ public class Employee {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    private String business_uuid;
+    @Column(name = "business_uuid")
+    private UUID businessUuid;
     private String salary;
     private String email;
     @Column(name = "phone_number")
@@ -25,12 +26,12 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(UUID uuid, String firstName, String lastName, String business_uuid, String salary, String email,
+    public Employee(UUID uuid, String firstName, String lastName, UUID business_uuid, String salary, String email,
             String phoneNumber) {
         this.uuid = uuid;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.business_uuid = business_uuid;
+        this.businessUuid = business_uuid;
         this.salary = salary;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -61,12 +62,12 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public String getBusiness_uuid() {
-        return business_uuid;
+    public UUID getBusinessUuid() {
+        return businessUuid;
     }
 
-    public void setBusiness_uuid(String business_uuid) {
-        this.business_uuid = business_uuid;
+    public void setBusinessUuid(UUID business_uuid) {
+        this.businessUuid = business_uuid;
     }
 
     public String getSalary() {

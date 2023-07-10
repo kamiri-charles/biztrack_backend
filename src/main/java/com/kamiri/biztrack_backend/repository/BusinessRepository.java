@@ -7,6 +7,6 @@ import java.util.UUID;
 public interface BusinessRepository extends JpaRepository<Business, UUID> {
     // Custom queries go here
     Business findByUuid(UUID uuid);
-    Business findByName(String name);
-    Business findByOwnerUuid(String owner_uuid);
+    Business[] findByOwnerUuid(UUID owner_uuid);
+
 }

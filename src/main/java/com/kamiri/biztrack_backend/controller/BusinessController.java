@@ -23,4 +23,10 @@ public class BusinessController {
     public Business getBusinessByUuid(@PathVariable("uuid") UUID uuid) {
         return businessRepository.findByUuid(uuid);
     }
+
+    // Get business(es) by owner UUID
+    @GetMapping("/owner/{owner_uuid}")
+    public Business[] getBusinessesByOwnerUuid(@PathVariable("owner_uuid") UUID owner_uuid) {
+        return businessRepository.findByOwnerUuid(owner_uuid);
+    }
 }
